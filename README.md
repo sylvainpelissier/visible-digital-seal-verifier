@@ -7,7 +7,8 @@ Tested on the "Cachet Electronique Visible" (CEV) from France Identité document
 ## Requirements
 
 - Python 3.10+
-- `poetry install` (recommended, `pyproject.toml` is provided)- Or for pip users:
+- `poetry install` (recommended, `pyproject.toml` is provided)
+- For pip:
   - `pip install lxml msgpack pycryptodome cryptography tdd`
 - Optional for PDF QR reading:
   - `pip install pdf2image pyzbar pillow`
@@ -18,24 +19,24 @@ Tested on the "Cachet Electronique Visible" (CEV) from France Identité document
 Base32 string:
 
 ```bash
-python QR/2ddoc_attestation/2ddoc.py 3YBHXHJ3J6U...
+python vds_parser.py 3YBHXHJ3J6U...
 ```
 
 Text file containing Base32 code:
 
 ```bash
-python QR/2ddoc_attestation/2ddoc.py code.txt
+python vds_parser.py code.txt
 ```
 
 PDF containing QR code:
 
 ```bash
-python QR/2ddoc_attestation/2ddoc.py /path/to/qrcode.pdf
+python vds_parser.py /path/to/qrcode.pdf
 ```
 
 ## Notes
 
-The manifests on the certificates should be extracted first from the application from example:
+The manifests on the certificates should be extracted first from the application for example with:
 
 ```bash
 $ unzip -j fr.gouv.franceidentite.apk "assets/manifests/*.xml" -d manifests
