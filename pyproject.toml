@@ -1,0 +1,18 @@
+[project]
+name = "vdsparser"
+version = "0.1.0"
+description = "Visible Digital Seal parser"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=46.0.3",
+    "loguru>=0.7.3",
+    "lxml>=6.0.2",
+    "msgpack>=1.1.2",
+    "pdf2image>=1.17.0",
+    "pillow>=12.1.0",
+    "pycryptodome>=3.23.0",
+    "pylibdmtx>=0.1.10",
+    "pyzbar>=0.1.9",
+    "tdd @ git+https://github.com/nipo/tdd"
+]
