@@ -92,7 +92,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('source', help='Base32 string or filename (txt or pdf)')
-    parser.add_argument('--check_root', action="store_true", help='Check certificate signature with root certificate', default=False)
+    parser.add_argument('--check-root', action="store_true", help='Check certificate signature with root certificate', default=False)
     args = parser.parse_args()
 
     source = args.source
@@ -162,6 +162,23 @@ if __name__ == "__main__":
         cert = x509.load_pem_x509_certificate(fd.read())
     
     if args.check_root:
+        now = datetime.now(root_cert.not_valid_before_utc.tzinfo)
+        if now < root_cert.not_valid_before_utc:
+            logger.error(f"Root CA certificate is not yet valid (valid from {root_cert.not_valid_before_utc})")
+            sys.exit(1)
+        if now > root_cert.not_valid_after_utc:
+            logger.error(f"Root CA certificate has expired (expired on {root_cert.not_valid_after_utc})")
+            sys.exit(1)
+
         cert.verify_directly_issued_by(root_cert)
+        logger.success("The certificate signature is valid")
+
+    now = datetime.now(cert.not_valid_before_utc.tzinfo)
+    if now < cert.not_valid_before_utc:
+        logger.error(f"Certificate is not yet valid (valid from {cert.not_valid_before_utc})")
+        sys.exit(1)
+    if now > cert.not_valid_after_utc:
+        logger.error(f"Certificate has expired (expired on {cert.not_valid_after_utc})")
+        sys.exit(1)
     
     verify_signature(msg, header, sig, cert)

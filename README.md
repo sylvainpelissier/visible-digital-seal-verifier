@@ -46,5 +46,4 @@ $ unzip -j fr.gouv.franceidentite.apk "assets/certificates/*.crt" -d certificate
 # Limitations
 
 * QR code or base32 decoding
-* No check on revocation dates
 * Support only ECDSA with P-256 curve verification
