@@ -14,5 +14,5 @@ dependencies = [
     "pycryptodome>=3.23.0",
     "pylibdmtx>=0.1.10",
     "pyzbar>=0.1.9",
-    "tdd @ git+https://github.com/nipo/tdd"
+    "tddoc"
 ]
