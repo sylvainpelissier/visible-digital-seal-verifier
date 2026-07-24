@@ -9,7 +9,7 @@ Tested on the "Cachet Electronique Visible" (CEV) from France Identité document
 - Python 3.10+
 - `poetry install` (recommended, `pyproject.toml` is provided)
 - For pip:
-  - `pip install lxml msgpack pycryptodome cryptography tdd`
+  - `pip install lxml msgpack pycryptodome cryptography tddoc`
 - Optional for PDF QR reading:
   - `pip install pdf2image pyzbar pillow`
   - System packages: `poppler-utils` (for `pdf2image`) and `zbar` (for `pyzbar`)

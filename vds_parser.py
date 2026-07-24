@@ -13,7 +13,7 @@ from cryptography import x509
 from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 from datetime import datetime
 from loguru import logger
-from tdd.c40 import c40
+from tddoc.c40 import c40
 
 # pdf2image and pyzbar are optional dependencies for PDF QR reading
 try:
